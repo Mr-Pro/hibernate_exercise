@@ -38,4 +38,26 @@ public class TestInsertCustomer {
         session.close();
         sessionFactory.close();
     }
+
+    @Test
+    public void test02(){
+
+        Configuration configuration = new Configuration();
+        //初始化hibernate的配置，这里默认的是配置根目录下的hibernate.cfg.xml
+        //如果不想用这个函数，或者说不想将配置文件放于根目录可以使用configure(String resource)或configure(URL url)....
+        configuration.configure();
+        //从会话工厂中拿取session
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        //打开会话
+        Session session = sessionFactory.openSession();
+        //开启事务
+        Transaction transaction = session.beginTransaction();
+
+        Customer customer = session.get(Customer.class, 1L);
+        System.out.println(customer);
+
+        transaction.commit();
+        session.close();
+        sessionFactory.close();
+    }
 }

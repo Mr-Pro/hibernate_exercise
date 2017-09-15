@@ -11,6 +11,7 @@
         除了id其他的为非必须的
         -->
         <id name="cust_id" column="cust_id">
+            <!--generator是配置主键的生成方式，这个以后会慢慢了解的-->
             <generator class="increment"/>
         </id>
 
