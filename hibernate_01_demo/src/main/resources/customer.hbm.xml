@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.lger.domain">
+    <!--声明对象Customer和表cst_customer是关联的，当然了这不是必须的-->
+    <class name="Customer" table="cst_customer">
+        <!--
+        声明表中的每一个字段对应的对象中的属性
+        除了id其他的为非必须的
+        -->
+        <id name="cust_id" column="cust_id">
+            <generator class="increment"/>
+        </id>
+
+        <property name="cust_name" column="cust_name" />
+        <property name="cust_source" column="cust_source" />
+        <property name="cust_industry" column="cust_industry" />
+        <property name="cust_level" column="cust_level" />
+        <property name="cust_linkman" column="cust_linkman" />
+        <property name="cust_phone" column="cust_phone" />
+        <property name="cust_mobile" column="cust_mobile" />
+    </class>
+</hibernate-mapping>

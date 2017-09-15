@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <!--一个配置文件中仅有的一个sessionFactory-->
+    <session-factory>
+        <!--连接数据库的基本操作-->
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_base</property>
+        <!--
+        hibernate.hbm2ddl.auto这个参数配置是在hibernate启动的时候对于表的操作的措施
+
+		create		自动建表.每次框架运行都会创建新的表.以前表将会被覆盖,表数据会丢失.(开发环境中测试使用)
+		create-drop 自动建表.每次框架运行结束都会将所有表删除.(开发环境中测试使用)
+		update      自动生成表.如果已经存在不会再生成.如果表有变动.自动更新表(不会删除任何数据).
+		validate	校验.不自动生成表.每次启动会校验数据库中表是否正确.
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--下列为非必须配置，只是为了开发方便-->
+        <!--hibernate.show_sql为true的时候可以在控制台打印出sql-->
+        <property name="hibernate.show_sql">true</property>
+        <!--hibernate.format_sql为true可以在打印sql的时候格式化，不然sql就是一行，不利于我们观看-->
+        <property name="hibernate.format_sql">true</property>
+
+        <!--加入映射文件-->
+        <mapping resource="customer.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
