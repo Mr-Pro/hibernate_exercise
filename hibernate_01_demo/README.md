@@ -7,4 +7,4 @@
 
 ##hibernate.cfg.xml
 这是主配置，是关于hibernate的sessionFactory的配置
-里面是包含了数据库的连接以及加载映射文件
+里面是包含了数据库的连接以及加载映射文件 
